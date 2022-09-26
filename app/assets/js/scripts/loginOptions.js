@@ -2,6 +2,8 @@ const loginOptionsCancelContainer = document.getElementById('loginOptionCancelCo
 const loginOptionMicrosoft = document.getElementById('loginOptionMicrosoft')
 const loginOptionMojang = document.getElementById('loginOptionMojang')
 const loginOptionsCancelButton = document.getElementById('loginOptionCancelButton')
+const loginOptionCrack = document.getElementById('loginOptionCrack')
+
 
 let loginOptionsCancellable = false
 
@@ -46,5 +48,13 @@ loginOptionsCancelButton.onclick = (e) => {
             loginOptionsViewCancelHandler()
             loginOptionsViewCancelHandler = null
         }
+    })
+}
+
+loginOptionCrack.onclick = (e) => {
+    switchView(getCurrentView(), VIEWS.crack_user, 500, 500, () => {
+        loginViewOnSuccess = loginOptionsViewOnLoginSuccess
+        loginViewOnCancel = loginOptionsViewOnLoginCancel
+        loginCancelEnabled(true)
     })
 }
